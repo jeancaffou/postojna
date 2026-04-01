@@ -6,7 +6,9 @@
 <head prefix="og: https://ogp.me/ns#">
     <meta charset="utf-8" />
     <base href="./" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sl_SI" />
+    <meta property="og:site_name" content="Postojna Online" />
     <title>Zaradi obilnega deževja je nastalo Postojnsko presihajoče jezero - postojna.si</title>
     <meta property="og:title" content="Zaradi obilnega deževja je nastalo Postojnsko presihajoče jezero - postojna.si" />
     <meta property="fb:app_id" content="1414532895426376" />
@@ -18,12 +20,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     
-                    <meta property="og:url" content="#" />
-                    <meta property="og:image" content="../Files/Gallery2/105/334711/postojnskojezero.jpg" />
+                    <meta property="og:url" content="https://postojna.online/assets/objava/postojnsko-jezero.html" />
+                    <meta property="og:image" content="https://postojna.online/assets/Files/Gallery2/105/334711/postojnskojezero.jpg" />
+                    <meta property="og:image:alt" content="Naslovna slika za satirični članek o Postojnskem presihajočem jezeru." />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:title" content="Zaradi obilnega deževja je nastalo Postojnsko presihajoče jezero - postojna.si" />
+                    <meta name="twitter:description" content="Zaradi obilnega deževja je po navedbah občine nastalo Postojnsko presihajoče jezero, redek naravni pojav, ki naj bi ga letos okrepila južna oscilacija El Hugo in povišana podzemna Pivka." />
+                    <meta name="twitter:image" content="https://postojna.online/assets/Files/Gallery2/105/334711/postojnskojezero.jpg" />
                 
 
             <link rel="shortcut icon" href="../favicons/postojna/favicon.ico">
-        <link rel="canonical" href="#" />
+        <link rel="canonical" href="https://postojna.online/assets/objava/postojnsko-jezero.html" />
         <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.postojna.si/sitemapxml">
 
     <script src="../bundles/jquerybasic.js"></script>
@@ -362,15 +369,15 @@
         <nav id="menu-right" role="navigation" aria-label="Nastavitve">
             <ul>
                     <li>
-                        <a id="login-link-mobile" href="https://www.postojna.si/Prijava">Prijava</a>
+                        <a id="login-link-mobile" href="/">Prijava</a>
                         <script type="text/javascript">
                             $(function () {
-                                $("#login-link-mobile").prop("href", "/prijava?ReturnUrl=" + window.location.pathname);
+                                $("#login-link-mobile").prop("href", "/");
                             });
                         </script>
                     </li>
                     <li>
-                        <a href="https://www.postojna.si/Registracija">Registracija</a>
+                        <a href="/">Registracija</a>
                     </li>
             </ul>
         </nav>
@@ -419,7 +426,7 @@
             }, {
                 "searchfield": {
                     "form": {
-                        action: "/search",
+                        action: "/",
                         method: "get"
                     },
                     "input": {
@@ -441,6 +448,17 @@
                 }
             });
 
+
+            document.querySelectorAll("#menu-left a, #menu-right a, #menu_desktop a, #top_menu a").forEach((link) => {
+                const href = link.getAttribute("href");
+                if (!href || href.startsWith("mailto:") || href.startsWith("tel:") || href === "#menu-left" || href === "#menu-right") {
+                    return;
+                }
+
+                const isToggle = href === "#" || href.endsWith("#") || href.includes(".html#") || link.classList.contains("menu_title") || link.getAttribute("aria-haspopup") === "true";
+                link.setAttribute("href", isToggle ? "javascript:void(0);" : "/");
+                link.setAttribute("target", "_self");
+            });
             if ($("#vsebina .modal").length > 0) {
                 $.each($("#vsebina .modal"), function () {
                     $(this).appendTo("body");
@@ -482,20 +500,20 @@
                 </li>
                 <li>
                     <div class="menuItems">
-                        <a class="eoicons eoicon-sitemap" href="https://www.postojna.si/sitemap" aria-label="Kazalo strani"></a>
+                        <a class="eoicons eoicon-sitemap" href="/" aria-label="Kazalo strani"></a>
                     </div>
                 </li>
                                                                                                                                         <li>
-                    <a class="eoicons eoicon-locked1" id="login-link" href="https://www.postojna.si/prijava" aria-label="Prijava"></a>
+                    <a class="eoicons eoicon-locked1" id="login-link" href="/" aria-label="Prijava"></a>
                     <script type="text/javascript">
                         $(function () {
-                            $("#login-link").prop("href", "/prijava?ReturnUrl=" + window.location.pathname);
+                            $("#login-link").prop("href", "/");
                         });
                     </script>
                 </li>
             <li class="search">
                 <div class="menuItems">
-                    <form id="search_form" method="GET" action="https://www.postojna.si/search">
+                    <form id="search_form" method="GET" action="/">
                         <input aria-label="Iskane ključne besede" id="search_term" name="search_term" placeholder="ISKANJE" />
                         <span aria-label="Išči" class="eoicons eoicon-search" id="search_btn" name="search_btn" role="button"></span>
                         <span id="search_close_button">✕</span>
@@ -1563,6 +1581,4 @@ Ljubljanska 4                                    <br />
 
 </body>
 </html>
-
-
 

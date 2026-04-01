@@ -6,24 +6,31 @@
 <head prefix="og: https://ogp.me/ns#">
     <meta charset="utf-8" />
     <base href="./" />
-    <meta property="og:type" content="website" />
-    <title>Na Tržaški cesti bodo spremenili smer enosmernega prometa - postojna.si</title>
-    <meta property="og:title" content="Na Tržaški cesti bodo spremenili smer enosmernega prometa - postojna.si" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sl_SI" />
+    <meta property="og:site_name" content="Postojna Online" />
+    <title>Počekfest 2025 - postojna.si</title>
+    <meta property="og:title" content="Počekfest 2025 - postojna.si" />
     <meta property="fb:app_id" content="1414532895426376" />
     <meta name="copyright" content="Copyright Sigmateh, 2025. Vse pravice pridržane.">
     <meta name="author" content="E-občina">
-    <meta name="description" content="Občina Postojna obvešča, da bodo na Tržaški cesti spremenili smer enosmernega prometa. Nova ureditev naj bi po občinskih pojasnilih izboljšala pretočnost, razširila obzorja voznikov in znižala samozavest navigacijskih naprav." />
-    <meta property="og:description" content="Občina Postojna obvešča, da bodo na Tržaški cesti spremenili smer enosmernega prometa. Nova ureditev naj bi po občinskih pojasnilih izboljšala pretočnost, razširila obzorja voznikov in znižala samozavest navigacijskih naprav." />
+    <meta name="description" content="Počekfest 2025 napoveduje prvi tradicionalni festival na bivšem vojaškem poligonu Poček, z vojaškim orkestrom, metal zasedbami in obljubo zgodovinskega slovesa od poligona." />
+    <meta property="og:description" content="Počekfest 2025 napoveduje prvi tradicionalni festival na bivšem vojaškem poligonu Poček, z vojaškim orkestrom, metal zasedbami in obljubo zgodovinskega slovesa od poligona." />
     <meta name="keywords" content="novice, aktualno dogajanje, novice v regiji, obcinske novice, občinske novice, oglasna deska, dogajanje v obcini, dogajanje v občini, obcinska stran, občinska stran, novosti v obcini, novosti v občini, Postojna, Občina Postojna" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     
-                    <meta property="og:url" content="#" />
-                    <meta property="og:image" content="../Files/Gallery2/105/334711/Gemini_Generated_Image_1x6wf1x6wf1x6wf1.webp" />
+                    <meta property="og:url" content="https://postojna.online/assets/objava/pocekfest.html" />
+                    <meta property="og:image" content="https://postojna.online/assets/Files/Gallery2/105/334711/pocekfest.jpg" />
+                    <meta property="og:image:alt" content="Naslovna slika za satirični članek Počekfest 2025." />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:title" content="Počekfest 2025 - postojna.si" />
+                    <meta name="twitter:description" content="Počekfest 2025 napoveduje prvi tradicionalni festival na bivšem vojaškem poligonu Poček, z vojaškim orkestrom, metal zasedbami in obljubo zgodovinskega slovesa od poligona." />
+                    <meta name="twitter:image" content="https://postojna.online/assets/Files/Gallery2/105/334711/pocekfest.jpg" />
                 
 
             <link rel="shortcut icon" href="../favicons/postojna/favicon.ico">
-        <link rel="canonical" href="#" />
+        <link rel="canonical" href="https://postojna.online/assets/objava/pocekfest.html" />
         <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.postojna.si/sitemapxml">
 
     <script src="../bundles/jquerybasic.js"></script>
@@ -362,15 +369,15 @@
         <nav id="menu-right" role="navigation" aria-label="Nastavitve">
             <ul>
                     <li>
-                        <a id="login-link-mobile" href="https://www.postojna.si/Prijava">Prijava</a>
+                        <a id="login-link-mobile" href="/">Prijava</a>
                         <script type="text/javascript">
                             $(function () {
-                                $("#login-link-mobile").prop("href", "/prijava?ReturnUrl=" + window.location.pathname);
+                                $("#login-link-mobile").prop("href", "/");
                             });
                         </script>
                     </li>
                     <li>
-                        <a href="https://www.postojna.si/Registracija">Registracija</a>
+                        <a href="/">Registracija</a>
                     </li>
             </ul>
         </nav>
@@ -419,7 +426,7 @@
             }, {
                 "searchfield": {
                     "form": {
-                        action: "/search",
+                        action: "/",
                         method: "get"
                     },
                     "input": {
@@ -441,6 +448,17 @@
                 }
             });
 
+
+            document.querySelectorAll("#menu-left a, #menu-right a, #menu_desktop a, #top_menu a").forEach((link) => {
+                const href = link.getAttribute("href");
+                if (!href || href.startsWith("mailto:") || href.startsWith("tel:") || href === "#menu-left" || href === "#menu-right") {
+                    return;
+                }
+
+                const isToggle = href === "#" || href.endsWith("#") || href.includes(".html#") || link.classList.contains("menu_title") || link.getAttribute("aria-haspopup") === "true";
+                link.setAttribute("href", isToggle ? "javascript:void(0);" : "/");
+                link.setAttribute("target", "_self");
+            });
             if ($("#vsebina .modal").length > 0) {
                 $.each($("#vsebina .modal"), function () {
                     $(this).appendTo("body");
@@ -482,20 +500,20 @@
                 </li>
                 <li>
                     <div class="menuItems">
-                        <a class="eoicons eoicon-sitemap" href="https://www.postojna.si/sitemap" aria-label="Kazalo strani"></a>
+                        <a class="eoicons eoicon-sitemap" href="/" aria-label="Kazalo strani"></a>
                     </div>
                 </li>
                                                                                                                                         <li>
-                    <a class="eoicons eoicon-locked1" id="login-link" href="https://www.postojna.si/prijava" aria-label="Prijava"></a>
+                    <a class="eoicons eoicon-locked1" id="login-link" href="/" aria-label="Prijava"></a>
                     <script type="text/javascript">
                         $(function () {
-                            $("#login-link").prop("href", "/prijava?ReturnUrl=" + window.location.pathname);
+                            $("#login-link").prop("href", "/");
                         });
                     </script>
                 </li>
             <li class="search">
                 <div class="menuItems">
-                    <form id="search_form" method="GET" action="https://www.postojna.si/search">
+                    <form id="search_form" method="GET" action="/">
                         <input aria-label="Iskane ključne besede" id="search_term" name="search_term" placeholder="ISKANJE" />
                         <span aria-label="Išči" class="eoicons eoicon-search" id="search_btn" name="search_btn" role="button"></span>
                         <span id="search_close_button">✕</span>
@@ -899,17 +917,17 @@ Postojna                                            </div>
         <div class="youarelocated">Nahajate se:</div>
     <div>
         <a style="overflow: hidden; display: inline-block;" href="../../index.html" data-keep-link="true">Domov</a>
- <span style="overflow: hidden;">Obvestila in objave</span> <a style="overflow: hidden; display: inline-block;" href="../../index.html" data-keep-link="true">Novice in objave</a>         <span id="current-location-title" class="odreziTekstDodajTriPike">Na Tržaški cesti bodo spremenili smer enosmernega prometa</span>    </div>
+ <span style="overflow: hidden;">Obvestila in objave</span> <a style="overflow: hidden; display: inline-block;" href="../../index.html" data-keep-link="true">Novice in objave</a>         <span id="current-location-title" class="odreziTekstDodajTriPike">Počekfest 2025</span>    </div>
 </div>
     <h1 id="main_title">
 
-Na Tržaški cesti bodo spremenili smer enosmernega prometa    </h1>
+Počekfest 2025    </h1>
 
 
 
 
             <div id="short_info">
-                    <span style="padding-right: 15px;"><span class="emunicipality-calendar-icon emunicipality-calendar-icon-md" data-bs-toggle="tooltip" title="Datum objave"></span>1. 4. 2026</span>
+                    <span style="padding-right: 15px;"><span class="emunicipality-calendar-icon emunicipality-calendar-icon-md" data-bs-toggle="tooltip" title="Datum objave"></span>1. 4. 2025</span>
                                     <span style="padding-right: 15px;">
                         <span class="emunicipality-author-icon emunicipality-author-icon-md" data-bs-toggle="tooltip" title="Objavil"></span>
 Uredništvo občinskih obvestil                    </span>
@@ -937,9 +955,9 @@ Osnovni podatki                </a>
 <div class="details_category_8" style="margin-top: 15px; clear: both;">
                     <div id="cover_image" style="float: right;">
                     <figcaption itemprop="caption description">
-                        <a title="Tržaška cesta" href="../Files/Gallery2/105/334711/Gemini_Generated_Image_1x6wf1x6wf1x6wf1.webp" rel="picture[gallery]" class="image-container">
-                            <img alt="Tržaška cesta" aria-hidden="true" src="../Files/Gallery2/105/334711/Gemini_Generated_Image_1x6wf1x6wf1x6wf1.webp" style="max-width: 400px; padding: 0 0 15px 15px;" />
-                                <div class="caption_details" style="font-style: italic; color: #666; padding-left: 10px; position: relative; top: -7px; text-align: right; font-size: .9rem; max-width: 400px;"><span class="eoicons eoicon-camera" style="margin-right: 5px;"></span>Tržaška cesta</div>
+                        <a title="Počekfest 2025" href="../Files/Gallery2/105/334711/pocekfest.jpg" rel="picture[gallery]" class="image-container">
+                            <img alt="Počekfest 2025" aria-hidden="true" src="../Files/Gallery2/105/334711/pocekfest.jpg" style="max-width: 400px; padding: 0 0 15px 15px;" />
+                                <div class="caption_details" style="font-style: italic; color: #666; padding-left: 10px; position: relative; top: -7px; text-align: right; font-size: .9rem; max-width: 400px;"><span class="eoicons eoicon-camera" style="margin-right: 5px;"></span>Počekfest 2025</div>
                         </a>
                     </figcaption>
                 </div>
@@ -960,10 +978,20 @@ Osnovni podatki                </a>
                     <div class="opis obogatena_vsebina colored_links">
                         
                         <div>
-<p style="text-align: justify;">Občina Postojna obve&scaron;ča občane, da bo na Trža&scaron;ki cesti v prihodnjih dneh spremenjena smer enosmernega prometa. Po pojasnilih pristojnih gre za premi&scaron;ljeno prometno potezo, s katero naj bi vozniki na isti cesti končno dobili priložnost, da jo doživijo &scaron;e iz drugega zornega kota in tako vzpostavijo bolj oseben odnos do prometne signalizacije.</p>
-<p style="text-align: justify;">Na občini ocenjujejo, da bo sprememba povečala pretočnost, ker se bo del voznikov nekaj časa ustavljal iz čistega spo&scaron;tovanja do novosti, preostali pa bodo previdno krožili po okoli&scaron;kih ulicah in s tem razbremenili Trža&scaron;ko cesto. Posebna delovna skupina za miren preobrat smeri je napovedala tudi prehodno obdobje, v katerem bodo domačini lahko opozarjali zmaju podobne navigacije, da imajo tokrat napačen občutek.</p>
-<p style="text-align: justify;">Za lažjo prilagoditev bo ob cesti postavljena dodatna prometna oprema, med drugim tri table, ena zelo odločna pu&scaron;čica in informativni list z naslovom &bdquo;Kam zdaj?&ldquo;. Na terenu naj bi bili prisotni tudi predstavniki občinske uprave, ki bodo z resnim izrazom na obrazu potrjevali, da je vse pod nadzorom, četudi bo prvih nekaj ur večina voznikov pogledovala levo, desno in nato &scaron;e vase.</p>
-<p style="text-align: justify;">Če bo ukrep uspe&scaron;en, občina ne izključuje nadaljnjih prometnih izbolj&scaron;av, med katerimi se omenja usklajevanje semaforjev z razpoloženjem jutranje konice ter poskusna uvedba pasu za tiste, ki so prepričani, da poznajo bližnjico. Do takrat občane prosijo za razumevanje, zbranost in pripravljenost, da se tudi najbolj znana cesta včasih prebudi z nekoliko drugačnimi ambicijami.</p>
+<p style="white-space: pre-line; text-align: justify;">🇸🇮🔥 POČEKFEST 2025 – PRVI TRADICIONALNI FESTIVAL NA BIVŠEM VOJAŠKEM POLIGONU! 🔥🇸🇮
+Z izstopom Združenih držav iz zveze NATO se vojaško vadbišče Poček zapira. V ta namen v sodelovanju z Vojaškim orkestrom organiziramo prvi tradicionalni Poček Fest na bivšem vojaškem poligonu Poček!
+Koncert bo z opernimi spevi odprl Počkaj, nato pa bodo oder razrušili:
+⚡ The Stroj
+⚡ Demolition Group
+⚡ Noctiferia
+⚡ Metalsteel
+⚡ Vojaški orkester
+Za zaključek festivala pridejo še lokalni Guns N' Roses cover band in Sex Pistols tribute band – ker nič ne reče "slovo od vojaškega poligona" bolj kot punk in rock himne!
+🔥 Vstopnice in več informacij: www.pocekfest.si
+Pridi in postani del zgodovine! 🚀
+#Počekfest #MetalnaPoligonu #ZadnjiPozdravPočku #VojaškaMetalMobilizacija
+
+P.S. Za žreb za brezplačno vstopnico enostavno deli to objavo! 🚀🚀 🚀</p>
 </div>
                     </div>
 
@@ -983,14 +1011,8 @@ Osnovni podatki                </a>
                     <div class="category">
                         <div class="title">Fotogalerija</div>
                         <div class="pictures">
-                                <a rel="picture[gallery]" title="Tržaška cesta" href="../Files/Gallery2/105/334711/Gemini_Generated_Image_1x6wf1x6wf1x6wf1.webp">
-                                    <img class="coverBackgroundImage" src="../Files/Gallery2/105/334711/Gemini_Generated_Image_1x6wf1x6wf1x6wf1.webp" alt="Tržaška cesta" />
-                                </a>
-                                <a rel="picture[gallery]" title="Tržaška cesta 2" href="../Files/Gallery2/105/334711/Gemini_Generated_Image_jaq33bjaq33bjaq3.webp">
-                                    <img class="coverBackgroundImage" src="../Files/Gallery2/105/334711/Gemini_Generated_Image_jaq33bjaq33bjaq3.webp" alt="Tržaška cesta 2" />
-                                </a>
-                                <a rel="picture[gallery]" title="Tržaška cesta 3" href="../Files/Gallery2/105/334711/Gemini_Generated_Image_phyej6phyej6phye.webp">
-                                    <img class="coverBackgroundImage" src="../Files/Gallery2/105/334711/Gemini_Generated_Image_phyej6phyej6phye.webp" alt="Tržaška cesta 3" />
+                                <a rel="picture[gallery]" title="Počekfest 2025" href="../Files/Gallery2/105/334711/pocekfest.jpg">
+                                    <img class="coverBackgroundImage" src="../Files/Gallery2/105/334711/pocekfest.jpg" alt="Počekfest 2025" />
                                 </a>
                         </div>
                     </div>
@@ -1019,24 +1041,22 @@ Osnovni podatki                </a>
                 <h2 class="related-posts-title" style="margin-top: 20px;">Več novic</h2>
         <div class="row m-0 relatedposts">
                 <div class="card-group col-sm-3 mb-3">
+                    <a target="_self" href="trzaska-cesta.html" data-keep-link="true" class="card">
+                        <div class="card-img-top" style="background-image: url('../Files/Gallery2/105/334711/Gemini_Generated_Image_1x6wf1x6wf1x6wf1.webp'); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
+
+                        <div class="card-body">
+                            <h5 class="card-title color1 ellipsis mt-0">Na Tržaški cesti bodo spremenili smer enosmernega prometa</h5>
+                                <p class="card-text"><span class="eoicons eoicon-time1"></span>1. 4. 2026</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-group col-sm-3 mb-3">
                     <a target="_self" href="sovic-grad.html" data-keep-link="true" class="card">
                         <div class="card-img-top" style="background-image: url('../Files/Gallery2/105/334711/sovic.webp'); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
 
                         <div class="card-body">
                             <h5 class="card-title color1 ellipsis mt-0">Občina Postojna načrtuje desetletno obnovo gradu na Soviču</h5>
                                 <p class="card-text"><span class="eoicons eoicon-time1"></span>1. 4. 2026</p>
-                                <p class="card-text">Občina napoveduje postopno obnovo gradu na Soviču v naslednjih desetih letih.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card-group col-sm-3 mb-3">
-                    <a target="_self" href="pocekfest.html" data-keep-link="true" class="card">
-                        <div class="card-img-top" style="background-image: url('../Files/Gallery2/105/334711/pocekfest.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
-
-                        <div class="card-body">
-                            <h5 class="card-title color1 ellipsis mt-0">Počekfest 2025</h5>
-                                <p class="card-text"><span class="eoicons eoicon-time1"></span>1. 4. 2025</p>
-                                <p class="card-text">Prvi tradicionalni festival na bivšem vojaškem poligonu Poček.</p>
                         </div>
                     </a>
                 </div>
@@ -1047,7 +1067,6 @@ Osnovni podatki                </a>
                         <div class="card-body">
                             <h5 class="card-title color1 ellipsis mt-0">Zaradi obilnega deževja je nastalo Postojnsko presihajoče jezero</h5>
                                 <p class="card-text"><span class="eoicons eoicon-time1"></span>1. 4. 2024</p>
-                                <p class="card-text">Redek naravni pojav naj bi letos povzročila južna oscilacija El Hugo.</p>
                         </div>
                     </a>
                 </div>
@@ -1572,6 +1591,4 @@ Ljubljanska 4                                    <br />
 
 </body>
 </html>
-
-
 
